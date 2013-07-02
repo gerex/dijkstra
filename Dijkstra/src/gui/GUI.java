@@ -3,13 +3,11 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
-
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 import listeners.ComboBoxListener;
 
@@ -21,26 +19,24 @@ public class GUI {
 	private JComboBox fromBox;
 	private JComboBox toBox;
 	
-	private JTextField routeField;
+	private JTextArea routeArea;
 	
 	private JLabel totalDistLabel;
 	
 	private ActionListener comboBoxListener;
 	
-	public static void main(String[] args)
+	public GUI(ComboBoxListener cbl)
 	{
-		GUI g = new GUI();
-	}
-	
-	public GUI()
-	{
-		comboBoxListener = new ComboBoxListener(this);
+		comboBoxListener = cbl;
 		
 		mainWindow = getMainWindow();
 		
 		mainWindow.add(getMainPanel(), BorderLayout.CENTER);
-		
-		mainWindow.setVisible(true);
+	}
+	
+	public void setVisible(boolean visible)
+	{
+		mainWindow.setVisible(visible);
 	}
 	
 	private JFrame getMainWindow()
@@ -84,14 +80,14 @@ public class GUI {
 	
 	private JComboBox getFromBox()
 	{ // TODO aus WeightedGraph auslesen
-		JComboBox cb = new JComboBox(new String[]{"Aachen","Kšln","Berlin"});
+		JComboBox cb = new JComboBox(new String[]{"A","B","C","D"});
 		cb.addActionListener(comboBoxListener);
 		return cb;
 	}
 	
 	private JComboBox getToBox()
 	{ // TODO aus WeightedGraph auslesen
-		JComboBox cb = new JComboBox(new String[]{"Aachen","Kšln","Berlin"});
+		JComboBox cb = new JComboBox(new String[]{"A","B","C","D"});
 		cb.addActionListener(comboBoxListener);
 		return cb;
 	}
@@ -100,15 +96,15 @@ public class GUI {
 	{
 		JPanel rp = new JPanel();
 		rp.setLayout(new BorderLayout());
-		routeField = getRouteField();
-		rp.add(routeField);
+		routeArea = getRouteArea();
+		rp.add(routeArea);
 		
 		return rp;
 	}
 	
-	private JTextField getRouteField()
+	private JTextArea getRouteArea()
 	{
-		JTextField rf = new JTextField();
+		JTextArea rf = new JTextArea();
 		
 		return rf;
 	}
@@ -136,7 +132,12 @@ public class GUI {
 	
 	public void setRouteText(String text)
 	{
-		routeField.setText(text);
+		routeArea.setText(text);
+	}
+	
+	public void setTotalDistance(int dist)
+	{
+		totalDistLabel.setText(""+dist);
 	}
 	
 }
