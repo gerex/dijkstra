@@ -1,5 +1,6 @@
 package listeners;
 
+import graph.ReadFile;
 import graph.Route;
 import graph.WeightedGraph;
 import gui.GUI;
@@ -8,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,6 +29,14 @@ public class ComboBoxListener implements ActionListener {
 		gui = new GUI(this);
 		wg = new WeightedGraph(3);
 
+		ReadFile rf = new ReadFile();
+		try {
+			rf.readFile();
+			
+		} catch (IOException m){
+			System.out.println(m.getMessage());
+		}
+		
 		// add A
 		HashMap<String, Integer> dist = new HashMap<String, Integer>();
 		dist.put("Berlin", 660);
@@ -53,7 +63,6 @@ public class ComboBoxListener implements ActionListener {
 		dist.put("Chemnitz", 100);
 		wg.addNode("Dresden", dist);
 		
-		wg.printIndexMap();
 		
 		gui.setNodeNames(new String[]{"Aachen","Berlin","Chemnitz","Dresden"});
 		

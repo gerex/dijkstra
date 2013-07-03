@@ -1,0 +1,23 @@
+Node
+Aachen, 0
+Berlin, 650
+Chemnitz, 500
+Dresden, 550
+
+Node
+Aachen, 650
+Berlin, 0
+Chemnitz, 250
+Dresden, 300
+
+Node
+Aachen, 500
+Berlin, 250
+Chemnitz, 0
+Dresden, -1
+
+Node
+Aachen, 550
+Berlin, 300
+Chemnitz, -1 
+Dresden, 0

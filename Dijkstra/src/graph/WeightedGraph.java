@@ -192,9 +192,4 @@ public class WeightedGraph {
 		
 		return new Route(route, totalDistance);
 	}
-	
-	public void printIndexMap()
-	{
-		System.out.println(indexMap);
-	}
 }
