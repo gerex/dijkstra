@@ -5,19 +5,19 @@ Chemnitz, 500
 Dresden, 550
 
 Node
-Aachen, 650
 Berlin, 0
+Aachen, 650
 Chemnitz, 250
 Dresden, 300
 
 Node
+Chemnitz, 0
 Aachen, 500
 Berlin, 250
-Chemnitz, 0
 Dresden, -1
 
 Node
+Dresden, 0
 Aachen, 550
 Berlin, 300
 Chemnitz, -1 
-Dresden, 0
