@@ -55,6 +55,8 @@ public class ComboBoxListener implements ActionListener {
 		
 		wg.printIndexMap();
 		
+		gui.setNodeNames(new String[]{"A","B","C","D"});
+		
 		gui.setVisible(true);
 	}
 	

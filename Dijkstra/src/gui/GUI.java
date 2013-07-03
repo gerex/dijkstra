@@ -3,6 +3,8 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,8 +18,11 @@ public class GUI {
 	
 	private JFrame mainWindow;
 	
-	private JComboBox fromBox;
-	private JComboBox toBox;
+	private DefaultComboBoxModel<String> fromModel;
+	private DefaultComboBoxModel<String> toModel;
+	
+	private JComboBox<String> fromBox;
+	private JComboBox<String> toBox;
 	
 	private JTextArea routeArea;
 	
@@ -28,6 +33,9 @@ public class GUI {
 	public GUI(ComboBoxListener cbl)
 	{
 		comboBoxListener = cbl;
+		
+		fromModel = new DefaultComboBoxModel<String>();
+		toModel = new DefaultComboBoxModel<String>();
 		
 		mainWindow = getMainWindow();
 		
@@ -69,27 +77,18 @@ public class GUI {
 		s.setLayout(new GridLayout(2,2));
 		
 		s.add(new JLabel("Start:"));
-		fromBox = getFromBox();
+		
+		fromBox = new JComboBox<String>(fromModel);
+		fromBox.addActionListener(comboBoxListener);
 		s.add(fromBox);
+		
 		s.add(new JLabel("Ziel:"));
-		toBox = getToBox();
+		
+		toBox = new JComboBox<String>(toModel);
+		toBox.addActionListener(comboBoxListener);
 		s.add(toBox);
 		
 		return s;
-	}
-	
-	private JComboBox getFromBox()
-	{ // TODO aus WeightedGraph auslesen
-		JComboBox cb = new JComboBox(new String[]{"A","B","C","D"});
-		cb.addActionListener(comboBoxListener);
-		return cb;
-	}
-	
-	private JComboBox getToBox()
-	{ // TODO aus WeightedGraph auslesen
-		JComboBox cb = new JComboBox(new String[]{"A","B","C","D"});
-		cb.addActionListener(comboBoxListener);
-		return cb;
 	}
 	
 	private JPanel getRoutePanel()
@@ -138,6 +137,14 @@ public class GUI {
 	public void setTotalDistance(int dist)
 	{
 		totalDistLabel.setText(""+dist);
+	}
+	
+	public void setNodeNames(String[] names)
+	{
+		fromModel = new DefaultComboBoxModel<String>(names);
+		toModel = new DefaultComboBoxModel<String>(names);
+		fromBox.setModel(fromModel);
+		toBox.setModel(toModel);
 	}
 	
 }
