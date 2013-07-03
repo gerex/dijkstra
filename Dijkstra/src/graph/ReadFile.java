@@ -7,16 +7,13 @@ import java.util.HashMap;
 
 public class ReadFile {
 	private int maxNodes = 4;
-	private boolean read = true;
 	private String zeile;
-	private WeightedGraph wg;
 	
-	public void readFile() throws IOException 
+	public WeightedGraph readFile(WeightedGraph wg) throws IOException 
 	  {
 	    FileReader fr = new FileReader("Graph.txt");
 	    BufferedReader br = new BufferedReader(fr);
 	    HashMap<String, Integer> dist = new HashMap<String, Integer>();
-	    wg = new WeightedGraph(3);
 
 	    while ((zeile = br.readLine()) != null){
 	    	
@@ -39,5 +36,6 @@ public class ReadFile {
 		    } 
 	    }
 	    br.close();
+	    return wg;
 	  }
 }

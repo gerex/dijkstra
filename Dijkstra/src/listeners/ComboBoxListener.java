@@ -17,6 +17,7 @@ public class ComboBoxListener implements ActionListener {
 
 	private GUI gui;
 	
+	private WeightedGraph weightedGraph;
 	private WeightedGraph wg;
 	
 	public static void main(String[] args)
@@ -27,16 +28,17 @@ public class ComboBoxListener implements ActionListener {
 	public ComboBoxListener()
 	{
 		gui = new GUI(this);
-		wg = new WeightedGraph(3);
+		weightedGraph = new WeightedGraph(3);
 
 		ReadFile rf = new ReadFile();
 		try {
-			rf.readFile();
+			wg = rf.readFile(weightedGraph);
 			
 		} catch (IOException m){
 			System.out.println(m.getMessage());
 		}
 		
+		/*
 		// add A
 		HashMap<String, Integer> dist = new HashMap<String, Integer>();
 		dist.put("Berlin", 660);
@@ -62,7 +64,7 @@ public class ComboBoxListener implements ActionListener {
 		dist.put("Berlin", 250);
 		dist.put("Chemnitz", 100);
 		wg.addNode("Dresden", dist);
-		
+		*/
 		
 		gui.setNodeNames(new String[]{"Aachen","Berlin","Chemnitz","Dresden"});
 		
