@@ -29,33 +29,33 @@ public class ComboBoxListener implements ActionListener {
 
 		// add A
 		HashMap<String, Integer> dist = new HashMap<String, Integer>();
-		dist.put("B", 10);
-		dist.put("C", 500);
-		wg.addNode("A", dist);
+		dist.put("Berlin", 660);
+		dist.put("Chemnitz", 500);
+		wg.addNode("Aachen", dist);
 		
 		// add B
 		dist = new HashMap<String, Integer>();
-		dist.put("A", 10);
-		dist.put("C", 30);
-		dist.put("D", 100);
-		wg.addNode("B", dist);
+		dist.put("Aachen", 660);
+		dist.put("Chemnitz", 150);
+		dist.put("Dresden", 250);
+		wg.addNode("Berlin", dist);
 		
 		// add C
 		dist = new HashMap<String, Integer>();
-		dist.put("A", 500);
-		dist.put("B", 30);
-		dist.put("D", 20);
-		wg.addNode("C", dist);
+		dist.put("Aachen", 500);
+		dist.put("Berlin", 150);
+		dist.put("Dresden", 100);
+		wg.addNode("Chemnitz", dist);
 		
 		// add D
 		dist = new HashMap<String, Integer>();
-		dist.put("B", 100);
-		dist.put("C", 20);
-		wg.addNode("D", dist);
+		dist.put("Berlin", 250);
+		dist.put("Chemnitz", 100);
+		wg.addNode("Dresden", dist);
 		
 		wg.printIndexMap();
 		
-		gui.setNodeNames(new String[]{"A","B","C","D"});
+		gui.setNodeNames(new String[]{"Aachen","Berlin","Chemnitz","Dresden"});
 		
 		gui.setVisible(true);
 	}
