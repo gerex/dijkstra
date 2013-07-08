@@ -22,13 +22,11 @@ public class ReadFile {
 		    		String row = br.readLine();
 		    		//System.out.println(row);
 		    		String [] splitResult = row.split(", ");
-		    		//System.out.println(splitResult[0]);
-		    		//System.out.println(splitResult[1]);
 		    		if (splitResult[1].equals("0")){
 		    			wg.addNode(splitResult[0], dist);
-		    		} else if (splitResult[1].equals("-1")){
+		    		}  else {
+		    			System.out.println(splitResult[0]);
 		    			System.out.println(splitResult[1]);
-		    		} else {
 		    			dist.put(splitResult[0], Integer.parseInt(splitResult[1]));
 		    		}
 		    		

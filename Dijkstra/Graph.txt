@@ -14,10 +14,9 @@ Node
 Chemnitz, 0
 Aachen, 500
 Berlin, 250
-Dresden, -1
+
 
 Node
 Dresden, 0
 Aachen, 550
 Berlin, 300
-Chemnitz, -1 
